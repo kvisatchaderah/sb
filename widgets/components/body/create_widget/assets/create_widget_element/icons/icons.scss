@@ -1,0 +1,18 @@
+@import 'frontend/src/views/apps/crm/widgets/assets/styles/_bundler.scss';
+
+// icons
+.icons {
+  @extend .list;
+}
+
+.icons_elem {
+  @extend .fc;
+
+  width: $input_elem_size;
+  height: $input_elem_size;
+
+  &.--active {
+    color: #000000;
+    background: $primary_color;
+  }
+}

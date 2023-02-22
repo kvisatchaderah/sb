@@ -1,0 +1,17 @@
+#{$id}
+	&.#{$cls}input
+		outline: none
+		font-size: $fsl
+		padding: $p
+		border-radius: $brad
+
+	// text transform
+	&.#{$cls}input::placeholder
+		.#{$cls}--placeholders_transform__lowercase &
+			text-transform: lowercase
+
+		.#{$cls}--placeholders_transform__uppercase &
+			text-transform: uppercase
+
+		.#{$cls}--placeholders_transform__capitalize &
+			text-transform: capitalize

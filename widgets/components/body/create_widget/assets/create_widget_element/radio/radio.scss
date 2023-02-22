@@ -1,0 +1,11 @@
+@import 'frontend/src/views/apps/crm/widgets/assets/styles/_bundler.scss';
+
+// radio
+.radio {
+  @extend .list;
+}
+
+.radio_elem {
+  @extend .fc;
+  padding: $ps $p;
+}

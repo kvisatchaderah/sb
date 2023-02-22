@@ -1,0 +1,42 @@
+@import 'frontend/src/views/apps/crm/widgets/assets/styles/variables.scss';
+@import 'frontend/src/views/apps/crm/widgets/assets/styles/classes.scss';
+
+.script_container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: $pl;
+  margin-bottom: $pl;
+
+  // header
+  &__header {
+    @extend .mark;
+    @extend .fs;
+
+    grid-column: 4 span;
+  }
+
+  // button
+  &__button {
+    @extend .fe;
+    gap: $pl;
+    grid-column: 9 / 4 span;
+  }
+
+  // code
+  &__code {
+    @extend .mark;
+
+    grid-column: 12 span;
+    padding: $p $pl;
+
+    border-radius: $brad;
+    background-color: #f8f8f8;
+    box-shadow: inset 0px 0px 8px 1px rgba(34, 41, 47, 0.4);
+  }
+
+  // comment
+  &__comment {
+    opacity: $op;
+    grid-column: 12 span;
+  }
+}

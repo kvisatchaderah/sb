@@ -1,0 +1,27 @@
+@import 'frontend/src/views/apps/crm/widgets/assets/styles/_bundler.scss';
+
+// colors
+.colors {
+  @extend .list;
+}
+
+.colors_elem {
+  @extend .fc;
+
+  width: $input_elem_size;
+  height: $input_elem_size;
+
+  &:not(.--active) svg {
+    display: none;
+  }
+}
+
+.colors_elem_background {
+  @extend .fc;
+
+  width: $input_elem_content_size;
+  height: $input_elem_content_size;
+
+  color: #000000;
+  border-radius: $brad;
+}

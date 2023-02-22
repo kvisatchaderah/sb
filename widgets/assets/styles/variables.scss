@@ -1,0 +1,28 @@
+// root
+:root {
+  --crm-indent-s: 4px;
+  --crm-indent: 8px;
+  --crm-indent-l: 24px;
+  --crm-border-radius: 3px;
+  --crm-primary-color: #32b76c;
+  --crm-border-color: #00000020;
+  --crm-opacity: 0.6;
+  --crm-opacity-large: 0.2;
+  --crm-transition: 300ms;
+}
+
+// variables
+$ps: 4px;
+$p: 8px;
+$pl: 24px;
+$brad: 5px;
+$input_max_width: 300px;
+$primary_color: #32b76c;
+$border_color: #00000020;
+$op: 0.6;
+$opl: 0.2;
+$transition: 180ms;
+
+// computed
+$input_elem_content_size: 16px + 2 * $p;
+$input_elem_size: $input_elem_content_size + 6px;

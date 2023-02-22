@@ -1,0 +1,57 @@
+@import 'frontend/src/views/apps/crm/widgets/assets/styles/_bundler.scss';
+
+// create_widget_element
+.create_widget_element {
+  display: flex;
+  flex-direction: column;
+  gap: $p;
+
+  padding-bottom: $pl;
+}
+
+// inputs_label
+.inputs_label {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+// inputs_wrapper
+.inputs_wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+
+  gap: $p;
+
+  // has_labels
+  &.--has_labels {
+    grid-template-columns: 2fr 7fr;
+
+    .switch_button {
+      grid-column: span 2;
+    }
+  }
+}
+
+.switch_button {
+  position: relative;
+  padding-bottom: 2 * $p;
+
+  &:after {
+    position: absolute;
+    content: '';
+
+    width: 100%;
+    max-width: $input_max_width;
+    height: 2px;
+    bottom: 0.5 * $p;
+    left: $brad;
+
+    background-color: #000000;
+    opacity: $opl;
+  }
+}
+
+// comment
+.comment {
+  font-style: italic;
+}

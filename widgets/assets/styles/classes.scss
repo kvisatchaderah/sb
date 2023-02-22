@@ -1,0 +1,43 @@
+// modify
+.link {
+  cursor: pointer;
+
+  &.--active {
+    color: $primary_color;
+  }
+}
+
+.--disabled {
+  opacity: $op;
+  pointer-events: none;
+}
+
+// helpers
+.flex_template {
+  display: flex;
+  align-items: center;
+
+  gap: $p;
+}
+
+.fc {
+  @extend .flex_template;
+  justify-content: center;
+}
+
+.fs {
+  @extend .flex_template;
+  justify-content: flex-start;
+}
+
+.fe {
+  @extend .flex_template;
+  justify-content: flex-end;
+}
+
+// mark
+.mark {
+  font-weight: bold;
+  font-size: 1.4rem;
+  opacity: $op;
+}

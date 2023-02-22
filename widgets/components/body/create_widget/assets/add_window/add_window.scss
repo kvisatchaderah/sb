@@ -1,0 +1,18 @@
+@import 'frontend/src/views/apps/crm/widgets/assets/styles/_bundler.scss';
+
+// add_window
+.add_window {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  padding: 1.5rem;
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    box-shadow: 0 4px 24px 0 rgba(34, 41, 47, 0.1);
+  }
+}

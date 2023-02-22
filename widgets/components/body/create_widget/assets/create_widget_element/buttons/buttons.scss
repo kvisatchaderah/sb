@@ -1,0 +1,10 @@
+@import 'frontend/src/views/apps/crm/widgets/assets/styles/_bundler.scss';
+
+// buttons
+.buttons {
+  @extend .list;
+}
+
+.button.--not_active {
+  border-color: rgba(0, 0, 0, $opl) !important;
+}

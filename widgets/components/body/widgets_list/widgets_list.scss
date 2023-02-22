@@ -1,0 +1,33 @@
+@import 'frontend/src/views/apps/crm/widgets/assets/styles/variables.scss';
+@import 'frontend/src/views/apps/crm/widgets/assets/styles/classes.scss';
+
+// widgets
+.widgets {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: $pl;
+
+  & > * {
+    margin-bottom: 0;
+  }
+}
+
+// widget
+.widget {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  min-height: 120px;
+}
+
+// widget_header
+.widget_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .id {
+    @extend .mark;
+  }
+}

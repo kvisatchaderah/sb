@@ -1,0 +1,28 @@
+@import 'frontend/src/views/apps/crm/widgets/assets/styles/_bundler.scss';
+@import '~@core/scss/base/bootstrap-extended/include';
+
+// form_window
+.form_window {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(max-content, auto));
+  gap: $pl;
+
+  padding-bottom: $pl;
+
+  .legend {
+    @extend .mark;
+
+    @include media-breakpoint-down(md) {
+      display: none;
+    }
+  }
+
+  .checkbox {
+    @extend .fs;
+  }
+
+  .delete {
+    @extend .fe;
+    cursor: pointer;
+  }
+}

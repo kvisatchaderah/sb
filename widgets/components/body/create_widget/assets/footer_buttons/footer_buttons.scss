@@ -1,0 +1,12 @@
+@import 'frontend/src/views/apps/crm/widgets/assets/styles/_bundler.scss';
+
+// footer_buttons
+.footer_buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &.--first_page {
+    justify-content: flex-end;
+  }
+}

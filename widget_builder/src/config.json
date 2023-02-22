@@ -1,0 +1,92 @@
+{
+  "config": {
+    "modifiers": {
+      "labels": true,
+      "labels_overflow": true,
+      "placeholders": true,
+      "shadows": true,
+      "buttons_variant": "fill",
+      "tree_labels_transform": "lowercase",
+      "labels_transform": "lowercase",
+      "placeholders_transform": "lowercase",
+      "widget_buttons_transform": "lowercase",
+      "errors_transform": "lowercase",
+      "open_template": "modal",
+      "mode": "quiz",
+      "widget_button_close_position": "top",
+      "widget_button_direction": "normal",
+      "widget_side": "left",
+      "widget_position": "middle",
+      "widget_button_side": "left",
+      "widget_button_position": "middle"
+    },
+
+    "vars": {
+      "background_color": "#f0f0f0",
+      "font_color": "#000000",
+      "font_size": "20px",
+      "widget_width": "350px",
+      "widget_button_icon_size": "30px",
+      "widget_button_font_size": "22px",
+      "base_distance": "8px",
+      "base_border_radius": "4px",
+      "scroll_border_width": "4px",
+      "button_next_color": "green",
+      "button_disable_color": "blue",
+      "button_prev_color": "grey",
+      "base_opacity": 0.7,
+      "label_size": 2,
+      "input_size": 3
+    },
+
+    "scrypts": {
+      "open_method": "dynamic"
+    },
+
+    "special": {
+      "no_style": false,
+      "widget__ids": "",
+      "widget__classes": "",
+      "widget__active_classes": "",
+      "submit__ids": "",
+      "submit__classes": ""
+    },
+
+    "views": {
+      "tree_labels": ["1 tree label", "2 tree label"],
+      "widget_button_open_text": "open_text ",
+      "widget_button_open_icon": "MessageSquareIcon",
+      "widget_button_close_text": "",
+      "widget_button_close_icon": "XIcon",
+      "windows": [
+        [
+          {
+            "id": 3,
+            "name": "text 1",
+            "type": "text",
+            "required": true,
+            "max": 4
+          },
+          {
+            "id": 2,
+            "name": "tel 1",
+            "type": "tel"
+          }
+        ],
+
+        [
+          {
+            "id": 1,
+            "name": "text 2",
+            "type": "text"
+          },
+          {
+            "id": 0,
+            "name": "tel 2",
+            "type": "tel"
+          }
+        ]
+      ]
+    }
+  }
+}

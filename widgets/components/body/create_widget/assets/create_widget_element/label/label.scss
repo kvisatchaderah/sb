@@ -1,0 +1,7 @@
+@import 'frontend/src/views/apps/crm/widgets/assets/styles/_bundler.scss';
+
+.label {
+  @extend .fs;
+  max-width: 200px;
+  overflow: hidden;
+}

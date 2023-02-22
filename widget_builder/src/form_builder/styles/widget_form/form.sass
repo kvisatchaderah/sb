@@ -1,0 +1,12 @@
+#{$id}.#{$cls}widget_form
+	@extend .#{$cls}card
+
+	position: relative
+	width: $widget_width
+	overflow-y: scroll
+
+	// mode__tree
+	&.#{$cls}--mode__tree
+		display: grid
+		column-gap: $p
+		row-gap: $p

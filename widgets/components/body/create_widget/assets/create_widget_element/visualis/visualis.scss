@@ -1,0 +1,38 @@
+@import 'frontend/src/views/apps/crm/widgets/assets/styles/_bundler.scss';
+
+// visualis
+.visualis {
+  display: grid;
+  gap: $p;
+
+  width: $input_max_width;
+  height: $input_elem_size;
+}
+
+// visual_element
+.visual_element {
+  @extend .fc;
+  position: relative;
+
+  height: 100%;
+  pointer-events: none;
+
+  border-width: 2px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, $opl);
+  border-radius: $brad;
+
+  &::before {
+    position: absolute;
+    content: '';
+
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    background-color: $primary_color;
+    border-radius: $brad;
+    opacity: $opl;
+  }
+}

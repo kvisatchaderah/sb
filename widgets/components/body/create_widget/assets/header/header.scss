@@ -1,0 +1,39 @@
+@import 'frontend/src/views/apps/crm/widgets/assets/styles/variables.scss';
+
+// header
+.header {
+  padding-bottom: $pl;
+
+  // label
+  h2 {
+    padding-bottom: $ps;
+    margin-bottom: $ps;
+
+    font-weight: bold;
+    text-transform: uppercase;
+    opacity: $op;
+
+    // has-comment
+    span.--has-comment {
+      position: relative;
+
+      &::after {
+        position: absolute;
+        content: '';
+
+        bottom: -$ps;
+        left: -$ps;
+        right: $ps;
+        height: 2px;
+
+        background-color: #000000;
+        opacity: $op;
+      }
+    }
+  }
+
+  // comment
+  div.comment {
+    font-style: italic;
+  }
+}
