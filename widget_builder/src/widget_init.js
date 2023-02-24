@@ -16,11 +16,8 @@ const append_widget_script = () => {
   script_node.src = `/widget.js?${version}`
   script_node.type = 'text/javascript'
 
-  // document.body.append(script_node)
+  document.body.append(script_node)
 }
 
-// init
-window.addEventListener('load', () => {
-  append_google_captcha_script()
-  append_widget_script()
-})
+append_google_captcha_script()
+append_widget_script()

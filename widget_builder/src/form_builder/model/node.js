@@ -1,11 +1,12 @@
-// models
-import InputModel from './models/input'
-import WidgetModel from './models/widget'
-import WidgetButtonsModel from './models/widget_buttons'
-import WindowsModel from './models/windows'
-import Overlay from './models/overlay'
-import FormModel from './models/form_model'
-import ButtonsModel from './models/buttons_'
+import {
+  InputModel,
+  WidgetModel,
+  WidgetButtonsModel,
+  WindowsModel,
+  Overlay,
+  FormModel,
+  ButtonsModel,
+} from './node_models/_node_models'
 
 // export
 export default class {

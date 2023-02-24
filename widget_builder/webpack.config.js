@@ -149,23 +149,11 @@ module.exports = ({ dev, serve }) => {
 
     resolve: {
       alias: {
-        // loaders
         '@loaders': __dirname + '/src/loaders/_loaders',
-
-        // assets
-        '@assets': __dirname + '/src/form_builder/assets/_assets',
-        '@m_assets': __dirname + '/src/form_builder/model/assets/_assets',
-        '@v_assets': __dirname + '/src/form_builder/view/assets/_assets',
-        '@c_assets': __dirname + '/src/form_builder/controller/assets/_assets',
-
-        // icons
-        '@icons': __dirname + '/src/form_builder/icons/_icons',
-
-        // styles
         '@styles': __dirname + '/src/form_builder/styles',
+        '@assets': __dirname + '/src/form_builder/assets/_assets',
 
         // helpers
-        '@helpers': __dirname + '/src/form_builder/helpers/_helpers',
         '@m_helpers': __dirname + '/src/form_builder/model/helpers/_helpers',
         '@v_helpers': __dirname + '/src/form_builder/view/helpers/_helpers',
         '@c_helpers':

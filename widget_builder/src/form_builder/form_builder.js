@@ -10,7 +10,7 @@ export default class {
   constructor(config) {
     // mvc
     this.Model = new Model(config)
-    this.View = new View()
+    this.View = new View(config.base_url)
     this.Controller = new Controller(this.Model, this.View)
 
     // init

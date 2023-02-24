@@ -1,0 +1,21 @@
+@import 'frontend/src/views/apps/crm/statistic/assets/scss/variables.scss';
+
+// columns
+.columns {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  overflow-x: scroll;
+
+  gap: $pl;
+  padding-top: $pl;
+  padding-bottom: $pl;
+}
+
+// column
+.column {
+  min-width: 200px;
+  .card {
+    margin-bottom: 0;
+  }
+}

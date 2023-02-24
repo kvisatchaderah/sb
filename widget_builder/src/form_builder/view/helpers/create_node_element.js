@@ -1,8 +1,5 @@
 // assets
-import { widget_name } from '@assets'
-
-// icons
-import icons from '@icons'
+import { widget_name, icons } from '@assets'
 
 // export
 export default function (tag, props, childs) {

@@ -1,0 +1,40 @@
+@import '~@core/scss/base/bootstrap-extended/include';
+@import 'frontend/node_modules/bootstrap/scss/_variables.scss';
+$grid-child-types: (
+  col: column,
+  row: row,
+);
+$gap: 20px;
+
+// static_widgets
+.grids {
+  display: grid;
+
+  grid-gap: $gap;
+  grid-auto-flow: dense;
+
+  // media
+  grid-template-columns: repeat(12, 1fr);
+
+  & > * {
+    grid-row: span 1;
+    grid-column: span 12;
+    max-width: 100%;
+  }
+
+  @each $type-name, $type-selector in $grid-child-types {
+    @for $counter from 0 to 12 {
+      & > .#{$type-name}_#{$counter + 1} {
+        grid-#{$type-selector}: span ($counter + 1);
+      }
+
+      @each $name, $_ in $grid-breakpoints {
+        @include media-breakpoint-up($name) {
+          & > .#{$name}\:#{$type-name}_#{$counter + 1} {
+            grid-#{$type-selector}: span ($counter + 1) !important;
+          }
+        }
+      }
+    }
+  }
+}

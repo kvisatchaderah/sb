@@ -26,6 +26,11 @@ export default {
   // set_inputs
   set_inputs() {
     this.targets.inputs = []
+    this.targets.antibot_inputs = [
+      ...document.querySelectorAll(
+        'input' + get_dynamic_class(classes.antibot)
+      ),
+    ]
     this.targets.window_valids = []
     this.targets.inputs_listeners = []
     ;[...this.emitters.next, ...this.emitters.submit].forEach((button_node) => {

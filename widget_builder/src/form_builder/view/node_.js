@@ -4,10 +4,14 @@ import { emitters_template, widget_name } from '@assets'
 // class
 const NodeClass = class {
   // constructor
-  constructor() {
+  constructor(base_url) {
     this.emitters = emitters_template
     this.targets = {}
     this.active_window = 0
+    this.token = null
+    this.base_url = base_url
+    this.form_active_start_time = null
+    this.is_bot = false
     this.recaptcha_public_key =
       document.getElementById(widget_name).dataset.recaptcha_public_key
   }

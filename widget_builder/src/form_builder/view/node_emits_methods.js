@@ -1,8 +1,9 @@
 // helpers
 import { get_dynamic_class, classList_change } from '@v_helpers'
+import * as dom_purify from 'dompurify'
 
 // assets
-import { classes } from '@assets'
+import { classes, form_active_min_time } from '@assets'
 
 // export
 export default {
@@ -10,12 +11,21 @@ export default {
   // widget_button
   //
 
-  // TODO переделать на вью модел
-  // TODO добавить класс еррор инпуту
+  // TODO change to vue model
+  // TODO add error class to input
 
   on_widget_button() {
     const widget_active = classList_change(this.targets.widget)
-    if (widget_active) this.set_recaptcha_token()
+
+    if (widget_active) {
+      // TODO delete extra '.' in the end
+      this.set_recaptcha_token()
+      this.set_init_time()
+    }
+  },
+
+  set_init_time() {
+    this.form_active_start_time = Date.now()
   },
 
   set_recaptcha_token() {
@@ -25,7 +35,7 @@ export default {
           action: 'submit',
         })
         .then((token) => {
-          localStorage.setItem('token', token)
+          this.token = token
         })
     })
   },
@@ -52,9 +62,39 @@ export default {
 
   // submit
   submit() {
-    const token = localStorage.getItem('token')
-    fetch(
-      `https://www.google.com/recaptcha/api/siteverify?secret=6Lcdn4MkAAAAAANpA8-wVqv7y9U1B4mxnQ_TWf6l&response=${token}`,
+    this.bot_check()
+
+    // TODO вывести сообщение о том что включилась антибот защита
+    if (this.is_bot) return
+
+    this.reset_windows_state()
+    const input_values = this.get_input_values()
+    this.send_input_values(input_values)
+    // TODO add submit tree working method
+    this.on_widget_button()
+  },
+
+  bot_check() {
+    this.is_bot =
+      this.is_bot ||
+      this.has_value_in_antibot_inputs() ||
+      // this.not_success_google_recaptcha() ||
+      this.not_correct_work_time()
+  },
+
+  not_correct_work_time() {
+    return Date.now() - this.form_active_start_time < form_active_min_time
+  },
+
+  has_value_in_antibot_inputs() {
+    return this.targets.antibot_inputs.reduce((result, antibot_input) => {
+      return result || antibot_input.value
+    }, false)
+  },
+
+  async not_success_google_recaptcha() {
+    const recaptcha_data = await fetch(
+      `https://www.google.com/recaptcha/api/siteverify?secret=6Lcdn4MkAAAAAANpA8-wVqv7y9U1B4mxnQ_TWf6l&response=${this.token}`,
       {
         method: 'post',
         mode: 'no-cors',
@@ -62,16 +102,10 @@ export default {
           'Content-Type': 'application/json',
         },
       }
-    )
-      .then((response) => response.json())
-      .then((recaptcha_data) => {
-        if (recaptcha_data.success && recaptcha_data.score > 0.5) {
-          this.reset_windows_state()
-          this.save_inputs_value()
-          // TODO add submit tree working method
-          this.on_widget_button()
-        }
-      })
+    ).then((response) => response.json())
+    const success_google_recaptcha =
+      recaptcha_data.success && recaptcha_data.score > 0.5
+    return !success_google_recaptcha
   },
 
   // reset windows state
@@ -94,9 +128,9 @@ export default {
     })
   },
 
-  // save_inputs_value
-  save_inputs_value() {
-    const data = this.targets.inputs
+  // get_input_values
+  get_input_values() {
+    return this.targets.inputs
       .map((window_inputs) => {
         return window_inputs.map((input_object) => {
           const v = input_object.node.value
@@ -104,14 +138,23 @@ export default {
 
           return {
             name: input_object.node.placeholder,
-            value: v,
+            value: dom_purify.sanitize(v),
             crm_id: input_object.crm_id,
           }
         })
       })
       .flat()
+  },
 
-    console.log('submit: ', data)
+  // send_input_values
+  send_input_values(input_values) {
+    fetch(`${this.base_url}/integration/widget/event`, {
+      method: 'post',
+      body: JSON.stringify({ data: input_values }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
   },
 
   // prev
@@ -122,6 +165,11 @@ export default {
   // next
   on_next() {
     this.next_step(this.change_active, 1)
+  },
+
+  // antibot
+  on_antibot() {
+    this.is_bot = true
   },
 
   // change active

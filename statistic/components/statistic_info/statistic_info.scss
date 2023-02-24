@@ -1,0 +1,104 @@
+@import 'frontend/src/views/apps/crm/statistic/assets/scss/variables.scss';
+
+// local variables
+$grafic_height: 6px;
+
+// header
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  // all_quantity
+  .all_quantity {
+    span:last-child {
+      font-size: 0.9em;
+      opacity: $op;
+    }
+  }
+
+  // tabs
+  .tabs {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: $p;
+    text-transform: uppercase;
+  }
+
+  .tab {
+    cursor: pointer;
+  }
+}
+
+// others
+.other {
+  padding-top: $p;
+  padding-bottom: $p;
+}
+
+.label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 $p $p $p;
+
+  .value {
+    span:first-child {
+      font-size: 1.4rem;
+      font-weight: bold;
+    }
+
+    span:last-child {
+      font-size: 1.4rem;
+      opacity: $op;
+    }
+  }
+}
+
+.grafic {
+  position: relative;
+  height: $grafic_height;
+  width: 100%;
+
+  // value
+  & > * {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+    border-radius: 0.5 * $grafic_height;
+  }
+
+  &_max_value {
+    right: 0;
+    background-color: #5e5873;
+    opacity: $opl;
+  }
+
+  &_current_value {
+    background-color: #32b76c;
+  }
+}
+
+.statistics_info .other:nth-child(6n) .grafic .grafic_current_value {
+  background-image: linear-gradient(30deg, #f1892d, #f39a4c);
+}
+.statistics_info .other:nth-child(6n + 1) .grafic .grafic_current_value {
+  background-image: linear-gradient(30deg, #da3c78, #df598c);
+}
+.statistics_info .other:nth-child(6n + 2) .grafic .grafic_current_value {
+  background-image: linear-gradient(30deg, #e74c3c, #ea6659);
+}
+.statistics_info .other:nth-child(6n + 3) .grafic .grafic_current_value {
+  background-image: linear-gradient(30deg, #0077c0, #268bc9);
+}
+.statistics_info .other:nth-child(6n + 4) .grafic .grafic_current_value {
+  background-image: linear-gradient(30deg, #0eac51, #31b86a);
+}
+.statistics_info .other:nth-child(6n + 5) .grafic .grafic_current_value {
+  background-image: linear-gradient(30deg, #07aba0, #2bb7ae);
+}
