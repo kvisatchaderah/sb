@@ -19,5 +19,5 @@ const append_widget_script = () => {
   document.body.append(script_node)
 }
 
-append_google_captcha_script()
+// append_google_captcha_script()
 append_widget_script()
